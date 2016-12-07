@@ -1,5 +1,14 @@
 class Admin::ProductsController < ApplicationController
 
+  #default method names
+  #index
+  #show
+  #create
+  #new
+  #edit
+  #update
+  #destroy
+
   def index
     @products = Product.order(id: :desc).all
   end

@@ -26,3 +26,18 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+
+
+
+## Rails Tips
+  -Use bin/rails and bin/rake
+  -Use the console to work with the models
+  -namespaces
+
+  RCAV
+
+  Route
+  Controller
+  Action
+  View (equivalent of ejs)
