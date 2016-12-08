@@ -3,7 +3,11 @@ class Admin::CategoriesController < ApplicationController
     @categories = Category.order(name: :desc).all
   end
 
-  def new
+  def create
     @category = Category.new
   end
+
+  def show
+  end
+
 end
