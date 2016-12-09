@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for shopping at Jungle.com!.</h1>
+    <h3>Your order details:</h3>
+
+      <p><strong>Order ID:</strong> <%= @order.id %></p>
+
+    <% @order.line_items.each do |line_item| %>
+      <p><strong>Name:</strong> <%= line_item.product.name %></p>
+      <p><strong>Description:</strong><%= line_item.product.description %></p>
+      <p><strong>Quantity</strong> <%= line_item.quantity %></p>
+      <p><strong>Price</strong><%= line_item.product.price %></p>
+    <% end %>
+
+
+    <p>Thanks and have a great day!</p>
+  </body>
+</html>
