@@ -8,6 +8,34 @@
     <h4>Thank you for your order!</h4>
   </div>
 
+<!-- Taken from products/show.html.erb -->
+
+  <% @order.line_items.each do |line_item| %>
+  <article class="product-detail">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= image_tag line_item.product.image.url, class: 'main-img' %>
+      </div>
+      <div class="col-sm-8">
+        <dl class="dl-horizontal">
+          <dt>Name</dt>
+          <dd><%= line_item.product.name %></dd>
+          <dt>Description</dt>
+          <dd><%= line_item.product.description %></dd>
+          <dt>Quantity</dt>
+          <dd><%= line_item.product.quantity %></dd>
+          <dt>Price</dt>
+          <dd><%= line_item.product.price %></dd>
+        </dl>
+      </div>
+    </div>
+  </article>
+  <% end %>
+
+  <div>
+    Order total: <%= number_to_currency(@order.total_cents / 100, :precision => 2) %>
+  </div>
+
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
