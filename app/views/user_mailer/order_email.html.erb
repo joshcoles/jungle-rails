@@ -10,10 +10,10 @@
       <p><strong>Order ID:</strong> <%= @order.id %></p>
 
     <% @order.line_items.each do |line_item| %>
-      <p><strong>Name:</strong> <%= line_item.product.name %></p>
-      <p><strong>Description:</strong><%= line_item.product.description %></p>
-      <p><strong>Quantity</strong> <%= line_item.quantity %></p>
-      <p><strong>Price</strong><%= line_item.product.price %></p>
+      <p><strong>Name: </strong><%= line_item.product.name %></p>
+      <p><strong>Description: </strong><%= line_item.product.description %></p>
+      <p><strong>Quantity: </strong><%= line_item.quantity %></p>
+      <p><strong>Price: </strong><%= line_item.product.price %></p>
     <% end %>
 
 

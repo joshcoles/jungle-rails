@@ -1,8 +1,14 @@
-Welcome to example.com!
+Thank you for shopping at Jungle.com!
 ===============================================
 
-Dear Customer,
+Order ID: <%= @order.id %>
 
+  <% @order.line_items.each do |line_item| %>
+      Name: <%= line_item.product.name %>
+      Description: <%= line_item.product.description %>
+      Quantity: <%= line_item.quantity %>
+      Price: <%= line_item.product.price %>
+    <% end %>
 
 
 Thanks and have a great day!
