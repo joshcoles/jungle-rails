@@ -26,10 +26,7 @@
       </div>
     </div>
 
-  <% @product.reviews.each do |review| %>
-    <div><strong>Review</strong></div>
-    <div> <%= render partial: "review", object: review %></div>
-  <% end %>
+
 
 
   <div>
@@ -40,9 +37,13 @@
     <% end %>
   </div>
 
-  <h2>Reviews</h2>
 
-
+    <div class="row">
+      <h4>Review Section</h4>
+      <dl class="dl-horizontal">
+        <%= render partial: 'review', collection: @product.reviews.sort_by(&:created_at).reverse %>
+      </dl>
+      </div>
 
   </article>
 
