@@ -22,14 +22,42 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
-          <% @product.reviews.each do |review| %>
-          <dt>Review</dt>
-          <dd> <%= render partial: "review", object: review %></dd>
-          <% end %>
         </dl>
       </div>
     </div>
 
+  <% @product.reviews.each do |review| %>
+    <div><strong>Review</strong></div>
+    <div> <%= render partial: "review", object: review %></div>
+  <% end %>
+
+
+  <div>
+    <%= form_for([@product, @review]) do |f| %>
+    <%= f.text_area :description %>
+    <%= f.select :rating, [['1', 1],['2', 2],['3', 3],['4', 4],['5', 5]] %>
+    <%= f.submit "Create" %>
+    <% end %>
+  </div>
+
+  <h2>Reviews</h2>
+
+
+
   </article>
 
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
