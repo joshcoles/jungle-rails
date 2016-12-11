@@ -25,24 +25,35 @@
         </dl>
       </div>
     </div>
+    <br>
 
 
   <% if current_user %>
 
-  <div>
-    <%= form_for([@product, @review]) do |f| %>
-    <%= f.text_area :description %>
-    <%= f.select :rating, [['1', 1],['2', 2],['3', 3],['4', 4],['5', 5]] %>
-    <%= f.submit "Create" %>
 
-    <% end %>
+    <%= form_for([@product, @review]) do |f| %>
+    <div class="row">
+    <div class="col-xs-4">
+    Leave a review.
+    <%= f.text_area :description, class: 'form-control' %>
+
+    <br>
+    <%= f.select :rating, [['1', 1],['2', 2],['3', 3],['4', 4],['5', 5]] %>
+    <%= f.submit "Create", class: 'btn-primary pull-right' %>
   </div>
+  </div>
+    <% end %>
+
 
   <% end %>
 
     <div class="row">
-      <h4>Review Section</h4>
+
       <dl class="dl-horizontal">
+      <div class="col-sm-7">
+      <h4>Reviews</h4>
+      </div>
+
         <%= render partial: 'review', collection: @product.reviews.sort_by(&:created_at).reverse %>
       </dl>
       </div>
@@ -50,9 +61,6 @@
   </article>
 
 </section>
-
-
-
 
 
 

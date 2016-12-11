@@ -1,12 +1,30 @@
-<div class="container col-xs-12 col-sm-6 col-md-8">
-  <div><strong><%= review.rating %> / 5</strong> - '<%= review.description %>'</div>
-  <div>-<em><%= review.user.name %></em></div><br>
+<div class="col-sm-7">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div>
+      <strong>
+          <%= review.user.name %>
+      </strong>
+      <em>
+      - <%= review.rating %> / 5
+      </em>
+      </div>
+    </div>
+  <div class="product-review">
+  '<%= review.description %>'
+  </div>
+  <br>
     <% if current_user && current_user.id == review.user.id %>
       <%= link_to 'Delete', [review.product, review],
         method: :delete,
-        data: { confirm: 'Are you sure?' } %>
+        data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
     <% end %>
+  </div>
 </div>
+
+
+
+
 
 
 
