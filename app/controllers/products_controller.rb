@@ -9,4 +9,6 @@ class ProductsController < ApplicationController
     @review = Review.new(:product => @product)
   end
 
+
+
 end

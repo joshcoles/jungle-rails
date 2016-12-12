@@ -15,4 +15,13 @@ class Product < ActiveRecord::Base
     self.quantity == 0
   end
 
+  def has_review?
+    reviews.count > 0
+  end
+
+  def average_rating
+    reviews.inject(0.0) {|review, next_review| review + next_review.rating } / reviews.count
+
+  end
+
 end
