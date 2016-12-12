@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
      puts "save failed"
      redirect_to '/'
    end
- end
+  end
 
   def destroy
     Review.find(params[:id]).destroy
