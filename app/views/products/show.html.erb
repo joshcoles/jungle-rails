@@ -48,18 +48,14 @@
   <% end %>
 
     <div class="row">
-
       <dl class="dl-horizontal">
-      <div class="col-sm-7">
-      <h4>Reviews</h4>
-      </div>
-
-        <%= render partial: 'review', collection: @product.reviews.sort_by(&:created_at).reverse %>
+        <div class="col-sm-7">
+          <h4>Reviews</h4>
+        </div>
+          <%= render partial: 'review', collection: @product.reviews.sort_by(&:created_at).reverse %>
       </dl>
-      </div>
-
+    </div>
   </article>
-
 </section>
 
 
