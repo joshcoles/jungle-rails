@@ -16,4 +16,5 @@ class SessionsController < ApplicationController
     redirect_to '/login'
     update_cart({})
   end
+
 end

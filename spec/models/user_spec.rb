@@ -62,10 +62,10 @@ RSpec.describe User, type: :model do
   describe '.authenticate_with_credentials' do
 
     before :each do
-      @josh_email = 'josh@joshcoles.com'
+      @josh_email = 'josh@joshCOLES.com'
       @josh_pw = 'testpassword'
       @test_user = User.create(first_name: 'Josh', last_name: 'Coles', email: @josh_email, password: @josh_pw, password_confirmation: @josh_pw)
-      @test_user_better = User.find_by(email: @josh_email)
+      @test_user_better = User.find_by(email: @josh_email.downcase)
     end
 
     it 'should be valid when an email and password combination are valid' do
@@ -85,6 +85,19 @@ RSpec.describe User, type: :model do
         .to be_falsy
     end
 
+    it 'should allow users to sign in even if they include whitespace on either side of their email address' do
+      expect(@test_user.email).to eq(@josh_email)
+      expect(@test_user.password).to eq(@josh_pw)
+      expect(User.authenticate_with_credentials('      josh@joshcoles.com', @josh_pw))
+        .to eq(@test_user_better)
+    end
+
+    it 'should allow users to sign in even if they capitalize certain characters in their email address' do
+      expect(@test_user.email).to eq(@josh_email)
+      expect(@test_user.password).to eq(@josh_pw)
+      expect(User.authenticate_with_credentials('josh@JOshColes.com', @josh_pw))
+        .to eq(@test_user_better)
+    end
 
   end
 end

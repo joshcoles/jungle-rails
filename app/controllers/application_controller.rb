@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
   protect_from_forgery with: :exception
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    rescue ActiveRecord::RecordNotFound
   end
   helper_method :current_user
 
@@ -28,4 +30,10 @@ class ApplicationController < ActionController::Base
     cookies[:cart]
   end
 
+
+  def require_user
+    redirect_to login_path unless current_user
+  end
+
 end
+
