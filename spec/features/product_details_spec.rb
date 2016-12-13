@@ -25,18 +25,7 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
   scenario "They navigate from home page to specific product page on click" do
   visit root_path
   first('.product').click_link('Details »')
-  # first('.produc')click_on('Details')[0]
-  # find("a", :text => "details")[2]
-  # sleep 7
   puts page.html
-  # save_screenshot
-  #click [product link]
-  #visit/redirect to that path
-  #expect page to have [specific css]
-  #screenshot product page
-
-
-
   end
 end
 
