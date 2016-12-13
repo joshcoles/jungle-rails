@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "ProductDetails", type: :feature do
+RSpec.feature "ProductDetails", type: :feature, js: true do
   before :each do
     @category = Category.create! name: 'Apparel'
 
@@ -12,10 +12,28 @@ RSpec.feature "ProductDetails", type: :feature do
         quantity: 10,
         price: 64.99
       )
+
     end
   end
 
-  scenario "They see all products" do
+
+  def wait_until
+    require "timeout"
+    timeout
+  end
+
+  scenario "They navigate from home page to specific product page on click" do
+  visit root_path
+  first('.product').click_link('Details »')
+  # first('.produc')click_on('Details')[0]
+  # find("a", :text => "details")[2]
+  # sleep 7
+  puts page.html
+  # save_screenshot
+  #click [product link]
+  #visit/redirect to that path
+  #expect page to have [specific css]
+  #screenshot product page
 
 
 
