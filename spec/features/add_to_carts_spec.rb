@@ -16,17 +16,12 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     end
   end
 
-  def wait_until
-    require "timeout"
-    timeout
+  scenario "A user adds an item to their cart and it updates the cart counter in the header" do
+  visit '/'
+  first('.product').click_on 'Add'
+  within "#navbar" do
+    expect(page).to have_link('My Cart (1)')
   end
-
-  scenario "They navigate from home page to specific product page on click" do
-  visit root_path
-  first('.product').click_link('Details »')
+    expect(page.current_path).to eq('/')
   end
 end
-
-
-
-
